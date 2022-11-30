@@ -1,0 +1,33 @@
+services:
+  app:
+    image: node:18
+    container_name: 'backend-ilia-test'
+    # user: 1000:1000
+    working_dir: /app
+    expose:
+      - 3000
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app
+    command: npm run start:dev
+
+    networks:
+      backend_test_net:
+        aliases:
+          - 'backend_test_net'
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - backend_test_net
+
+networks:
+  backend_test_net:
+    name: backend_test_net
+    driver: bridge
