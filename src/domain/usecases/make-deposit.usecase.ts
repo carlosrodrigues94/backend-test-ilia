@@ -13,5 +13,5 @@ export interface MakeDepositUsecaseResult {
 }
 
 export interface MakeDepositUsecase {
-  execute(data: MakeDepositUsecasePayload): Promise<AccountModel>;
+  execute(payload: MakeDepositUsecasePayload): Promise<AccountModel>;
 }

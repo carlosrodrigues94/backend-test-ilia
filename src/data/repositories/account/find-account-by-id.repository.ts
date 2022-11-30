@@ -1,5 +1,5 @@
 import { AccountModel } from '@/domain/models';
 
-export interface FindByIdAccountRepository {
+export interface FindAccountByIdRepository {
   findAccountById: (id: string) => Promise<AccountModel>;
 }

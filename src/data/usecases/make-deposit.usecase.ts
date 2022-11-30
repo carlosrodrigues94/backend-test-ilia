@@ -5,7 +5,7 @@ import {
 } from '@/domain/usecases';
 
 import {
-  FindByIdAccountRepository,
+  FindAccountByIdRepository,
   UpdateAccountRepository,
 } from '@/data/repositories/account';
 
@@ -15,21 +15,21 @@ import { ApplicationException } from '@/data/exceptions';
 export class DbMakeDepositUsecase implements MakeDepositUsecase {
   constructor(
     private readonly accountRepository: UpdateAccountRepository &
-      FindByIdAccountRepository,
+      FindAccountByIdRepository,
     private readonly uniqueIdService: UniqueIdService,
   ) {}
 
-  async execute(data: MakeDepositUsecasePayload): Promise<AccountModel> {
+  async execute(payload: MakeDepositUsecasePayload): Promise<AccountModel> {
     const deposit: DepositModel = {
       id: this.uniqueIdService.generateUniqueId(),
-      userId: data.userId,
-      accountId: data.accountId,
-      amount: data.amount,
+      userId: payload.userId,
+      accountId: payload.accountId,
+      amount: payload.amount,
       createdAt: new Date(),
     };
 
     const account = await this.accountRepository.findAccountById(
-      data.accountId,
+      payload.accountId,
     );
 
     if (!account) {
@@ -39,7 +39,7 @@ export class DbMakeDepositUsecase implements MakeDepositUsecase {
     const updatedBalance = account.balance + deposit.amount;
 
     const updatedAccount = await this.accountRepository.updateAccount(
-      data.accountId,
+      payload.accountId,
       {
         balance: updatedBalance,
         updatedAt: new Date(),

@@ -1,11 +1,11 @@
 import {
-  FindByIdAccountRepository,
+  FindAccountByIdRepository,
   UpdateAccountRepository,
 } from '@/data/repositories/account';
 import { AccountModel } from '@/domain/models';
 import { Knex, knex } from 'knex';
 
-type Repository = UpdateAccountRepository & FindByIdAccountRepository;
+type Repository = UpdateAccountRepository & FindAccountByIdRepository;
 
 export class KnexAccountRepository implements Repository {
   protected tableName = 'accounts';

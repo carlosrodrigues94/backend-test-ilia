@@ -1,6 +1,6 @@
 export class UserModel {
   id: string;
-  name: number;
+  name: string;
   document: string;
   createdAt: Date;
 }
