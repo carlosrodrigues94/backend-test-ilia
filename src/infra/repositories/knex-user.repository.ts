@@ -1,16 +1,28 @@
 import {
   CreateUserRepository,
   FindUserByDocumentRepository,
+  FindUserByIdRepository,
 } from '@/data/repositories/user';
-import { UserModel } from '@/domain/models/user';
+import { UserModel } from '@/domain/models';
 import { Knex, knex } from 'knex';
 
-type Repository = CreateUserRepository & FindUserByDocumentRepository;
+type Repository = CreateUserRepository &
+  FindUserByDocumentRepository &
+  FindUserByIdRepository;
 
 export class KnexUserRepository implements Repository {
   protected tableName = 'users';
 
   constructor(private readonly knexConfig: Knex.Config) {}
+  async findUserById(id: string): Promise<UserModel> {
+    const [user] = await knex(this.knexConfig)
+      .table(this.tableName)
+      .select('*')
+      .where({ id })
+      .returning<UserModel[]>('*');
+
+    return user;
+  }
 
   async createUser(data: UserModel) {
     const [user] = await knex(this.knexConfig)

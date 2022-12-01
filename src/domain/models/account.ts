@@ -2,7 +2,7 @@ export class AccountModel {
   id: string;
   userId: string;
   balance: number;
-  updatedAt: Date;
+  updatedAt?: Date;
   createdAt: Date;
 
   constructor() {

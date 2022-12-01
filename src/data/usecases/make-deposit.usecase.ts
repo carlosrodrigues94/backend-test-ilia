@@ -11,11 +11,13 @@ import {
 
 import { UniqueIdService } from '@/data/services';
 import { ApplicationException } from '@/data/exceptions';
+import { CreateDepositRepository } from '../repositories/deposit';
 
 export class DbMakeDepositUsecase implements MakeDepositUsecase {
   constructor(
     private readonly accountRepository: UpdateAccountRepository &
       FindAccountByIdRepository,
+    private readonly depositRepository: CreateDepositRepository,
     private readonly uniqueIdService: UniqueIdService,
   ) {}
 
@@ -35,6 +37,8 @@ export class DbMakeDepositUsecase implements MakeDepositUsecase {
     if (!account) {
       throw new ApplicationException('This account do not exists', 400);
     }
+
+    await this.depositRepository.createDeposit(deposit);
 
     const updatedBalance = account.balance + deposit.amount;
 

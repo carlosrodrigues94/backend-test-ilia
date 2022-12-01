@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { MakeDepositUsecaseFactory } from '../factories';
+import { MakeDepositUsecaseFactory } from '@/presentation/factories';
 import {
   MakeDepositUsecase,
   MakeDepositUsecasePayload,

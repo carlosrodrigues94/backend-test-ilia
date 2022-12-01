@@ -1,13 +1,15 @@
-import { UserModel } from '@/domain/models/user';
+import { UserModel } from '@/domain/models';
 import { CreateUserUsecase, CreateUserUsecasePayload } from '@/domain/usecases';
-import { UniqueIdService } from '@/data/services';
+
 import {
   CreateUserRepository,
   FindUserByDocumentRepository,
 } from '@/data/repositories/user';
+
+import { UniqueIdService } from '@/data/services';
 import { ApplicationException } from '@/data/exceptions';
 
-export class DbCreateUserUsercase implements CreateUserUsecase {
+export class DbCreateUserUsecase implements CreateUserUsecase {
   constructor(
     private readonly uniqueIdService: UniqueIdService,
     private readonly userRepository: CreateUserRepository &

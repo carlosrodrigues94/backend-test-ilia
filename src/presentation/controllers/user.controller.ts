@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreateUserUsecase, CreateUserUsecasePayload } from '@/domain/usecases';
-import { CreateUserUsecaseFactory } from '../factories';
-import { CreateUserDTO } from '../dtos';
+import { CreateUserUsecase } from '@/domain/usecases';
+import { CreateUserUsecaseFactory } from '@/presentation/factories';
+import { CreateUserDTO } from '@/presentation/dtos';
 
 @Controller()
 export class UserController {

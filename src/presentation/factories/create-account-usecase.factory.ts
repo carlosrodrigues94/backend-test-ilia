@@ -1,25 +1,26 @@
 import { ConfigService } from '@nestjs/config';
 import { Knex } from 'knex';
-import { DbMakeDepositUsecase } from '@/data/usecases';
+import { DbCreateAccountUsecase } from '@/data/usecases';
 import {
   KnexAccountRepository,
-  KnexDepositRepository,
+  KnexUserRepository,
 } from '@/infra/repositories';
 import { UuidService } from '@/infra/services/uuid.service';
 
-export class MakeDepositUsecaseFactory {
+export class CreateAccountUsecaseFactory {
   constructor(private readonly configService: ConfigService) {}
   build() {
     const knexConfig = this.configService.get<Knex.Config>('knex');
 
+    const userRepository = new KnexUserRepository(knexConfig);
     const accountRepository = new KnexAccountRepository(knexConfig);
-    const depositRepository = new KnexDepositRepository(knexConfig);
+
     const uuidService = new UuidService();
 
-    return new DbMakeDepositUsecase(
-      accountRepository,
-      depositRepository,
+    return new DbCreateAccountUsecase(
       uuidService,
+      accountRepository,
+      userRepository,
     );
   }
 }
