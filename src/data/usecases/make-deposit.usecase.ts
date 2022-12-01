@@ -11,7 +11,7 @@ import {
 
 import { UniqueIdService } from '@/data/services';
 import { ApplicationException } from '@/data/exceptions';
-import { CreateDepositRepository } from '../repositories/deposit';
+import { CreateDepositRepository } from '@/data/repositories/deposit';
 
 export class DbMakeDepositUsecase implements MakeDepositUsecase {
   constructor(

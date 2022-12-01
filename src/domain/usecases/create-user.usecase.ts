@@ -1,4 +1,4 @@
-import { UserModel } from '../models';
+import { UserModel } from '@/domain/models';
 
 export interface CreateUserUsecasePayload {
   name: string;

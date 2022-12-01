@@ -13,7 +13,7 @@ export class AccountController {
   }
 
   @Post('/accounts')
-  async createUser(@Body() body: CreateAccountDTO) {
+  async createAccount(@Body() body: CreateAccountDTO) {
     const result = await this.usecase.execute(body);
     return result;
   }
