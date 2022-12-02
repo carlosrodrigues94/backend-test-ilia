@@ -109,10 +109,12 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Screenshots
+
 <p align="center">
-  <img src="./github/assets/unit-tests.png" width="200" alt="Nest Logo" />
+  <img src="./github/assets/unit-tests.png" width="600" alt="Nest Logo" />
 </p>
 
 <p align="center">
-  <img src="./github/assets/insomnia-screenshot.png" width="200" alt="Nest Logo" />
+  <img src="./github/assets/insomnia-screenshot.png" width="600" alt="Nest Logo" />
 </p>
