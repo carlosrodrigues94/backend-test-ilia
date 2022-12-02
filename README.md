@@ -64,11 +64,11 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 
 ## About the project
 
-host: http://localhost:3000
-swagger: http://localhost:3000/api
-database: postgres
-tests: jest and supertest
-container: docker
+- host: http://localhost:3000
+- swagger: http://localhost:3000/api
+- database: postgres
+- tests: jest and supertest
+- container: docker
 
 <p>The application it is separated by layers respecting some architecture concepts</p>
 
