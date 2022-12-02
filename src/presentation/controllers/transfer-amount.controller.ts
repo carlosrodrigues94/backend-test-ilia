@@ -12,7 +12,7 @@ export class TransferAmountController {
     this.usecase = this.makeTransferAmountUsecaseFactory.build();
   }
 
-  @Post('/transfer')
+  @Post('/transfers')
   async transferAmount(@Body() body: TransferAmountDTO) {
     const result = await this.usecase.execute(body);
     return result;

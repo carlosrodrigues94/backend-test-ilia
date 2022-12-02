@@ -21,10 +21,9 @@ export class DbMakeDepositUsecase implements MakeDepositUsecase {
     private readonly uniqueIdService: UniqueIdService,
   ) {}
 
-  async execute(payload: MakeDepositUsecasePayload): Promise<AccountModel> {
+  async execute(payload: MakeDepositUsecasePayload): Promise<DepositModel> {
     const deposit: DepositModel = {
       id: this.uniqueIdService.generateUniqueId(),
-      userId: payload.userId,
       accountId: payload.accountId,
       amount: payload.amount,
       createdAt: new Date(),
@@ -42,14 +41,11 @@ export class DbMakeDepositUsecase implements MakeDepositUsecase {
 
     const updatedBalance = account.balance + deposit.amount;
 
-    const updatedAccount = await this.accountRepository.updateAccount(
-      payload.accountId,
-      {
-        balance: updatedBalance,
-        updatedAt: new Date(),
-      },
-    );
+    await this.accountRepository.updateAccount(payload.accountId, {
+      balance: updatedBalance,
+      updatedAt: new Date(),
+    });
 
-    return updatedAccount;
+    return deposit;
   }
 }

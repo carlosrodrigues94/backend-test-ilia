@@ -1,7 +1,6 @@
 export class DepositModel {
   id: string;
-  amount: number;
-  userId: string;
   accountId: string;
+  amount: number;
   createdAt: Date;
 }

@@ -6,7 +6,6 @@ export async function up(knex: Knex): Promise<void> {
     table.uuid('accountId').notNullable();
     table.integer('amount').notNullable();
     table.timestamp('createdAt').notNullable();
-    table.timestamp('updatedAt').nullable();
   });
 }
 

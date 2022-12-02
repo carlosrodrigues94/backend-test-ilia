@@ -5,11 +5,15 @@ import {
   DepositController,
   TransferAmountController,
   UserController,
+  WithdrawalController,
 } from '@/presentation/controllers';
 import {
   CreateAccountUsecaseFactory,
   CreateUserUsecaseFactory,
+  GetAccountBalanceUsecaseFactory,
+  GetAccountStatementUsecaseFactory,
   MakeDepositUsecaseFactory,
+  MakeWithdrawalUsecaseFactory,
   TransferAmountUsecaseFactory,
 } from '@/presentation/factories';
 import { knexConfig } from '@/config/knex.config';
@@ -21,6 +25,7 @@ import { knexConfig } from '@/config/knex.config';
     UserController,
     AccountController,
     TransferAmountController,
+    WithdrawalController,
   ],
   providers: [
     {
@@ -50,6 +55,28 @@ import { knexConfig } from '@/config/knex.config';
       inject: [ConfigService],
       useFactory: (configService) => {
         return new TransferAmountUsecaseFactory(configService);
+      },
+    },
+    {
+      provide: GetAccountStatementUsecaseFactory,
+      inject: [ConfigService],
+      useFactory: (configService) => {
+        return new GetAccountStatementUsecaseFactory(configService);
+      },
+    },
+
+    {
+      provide: GetAccountBalanceUsecaseFactory,
+      inject: [ConfigService],
+      useFactory: (configService) => {
+        return new GetAccountBalanceUsecaseFactory(configService);
+      },
+    },
+    {
+      provide: MakeWithdrawalUsecaseFactory,
+      inject: [ConfigService],
+      useFactory: (configService) => {
+        return new MakeWithdrawalUsecaseFactory(configService);
       },
     },
   ],

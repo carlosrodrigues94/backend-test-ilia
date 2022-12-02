@@ -2,13 +2,20 @@ import {
   CreateAccountRepository,
   FindAccountByIdRepository,
   UpdateAccountRepository,
+  ListAccountStatementByIdRepository,
 } from '@/data/repositories/account';
-import { AccountModel } from '@/domain/models';
+import {
+  AccountModel,
+  AccountStatement,
+  DepositModel,
+  TransferModel,
+} from '@/domain/models';
 import { Knex, knex } from 'knex';
 
 type Repository = UpdateAccountRepository &
   FindAccountByIdRepository &
-  CreateAccountRepository;
+  CreateAccountRepository &
+  ListAccountStatementByIdRepository;
 
 export class KnexAccountRepository implements Repository {
   protected tableName = 'accounts';
@@ -43,5 +50,45 @@ export class KnexAccountRepository implements Repository {
       .returning<AccountModel[]>('*');
 
     return account;
+  }
+
+  async listAccountStatement(accountId: string): Promise<AccountStatement> {
+    const [account] = await knex(this.knexConfig)
+      .select('*')
+      .from(this.tableName)
+      .where({ id: accountId })
+      .returning<AccountModel[]>('*');
+
+    if (!account) {
+      return;
+    }
+
+    const transfers = await knex(this.knexConfig)
+      .select(['id', 'amount', 'recipientAccountId', 'createdAt'])
+      .from('transfers')
+      .where({ originAccountId: accountId })
+      .orWhere({ recipientAccountId: accountId })
+      .returning<TransferModel[]>('*');
+
+    const deposits = await knex(this.knexConfig)
+      .select(['id', 'amount', 'createdAt'])
+      .from('deposits')
+      .where({ accountId })
+      .returning<DepositModel[]>('*');
+
+    const result = {
+      ...account,
+      deposits,
+      transfers: [
+        ...transfers.map((item) => {
+          if (item.recipientAccountId === accountId) {
+            return item;
+          }
+          return { ...item, amount: -item.amount };
+        }),
+      ],
+    };
+
+    return result;
   }
 }

@@ -10,11 +10,11 @@ export class KnexDepositRepository implements Repository {
   constructor(private readonly knexConfig: Knex.Config) {}
 
   async createDeposit(data: DepositModel): Promise<DepositModel> {
-    const [user] = await knex(this.knexConfig)
+    const [deposit] = await knex(this.knexConfig)
       .table(this.tableName)
       .insert(data)
       .returning<DepositModel[]>('*');
 
-    return user;
+    return deposit;
   }
 }
