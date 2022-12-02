@@ -67,6 +67,19 @@ $ npm run knex migrate:latest
 - Get account balance
 - Get account statement
 
+## Test
+
+```bash
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
+```
+
 ## Challenge:
 
 This document describes the test for backend development positions at the RipioTrade cryptocurrency exchange.
@@ -103,6 +116,20 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 
 [✅] The code for this API needs to be versioned in a public GitHub repository, and the URL should be shared with us. If possible, also include in the README the instructions to run the application and the tests (if there are any).
 
+## Screenshots
+
+<p align="center">
+  <img src="./github/assets/unit-tests.png" width="600" alt="Nest Logo" />
+</p>
+
+<p align="center">
+  <img src="./github/assets/insomnia-screenshot.png" width="600" alt="Nest Logo" />
+</p>
+
+<p align="center">
+  <img src="./github/assets/swagger-screenshot.png" width="600" alt="Nest Logo" />
+</p>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
@@ -126,30 +153,3 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Screenshots
-
-<p align="center">
-  <img src="./github/assets/unit-tests.png" width="600" alt="Nest Logo" />
-</p>
-
-<p align="center">
-  <img src="./github/assets/insomnia-screenshot.png" width="600" alt="Nest Logo" />
-</p>
