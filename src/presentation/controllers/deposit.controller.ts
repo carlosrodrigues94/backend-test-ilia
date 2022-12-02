@@ -1,7 +1,8 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { MakeDepositUsecaseFactory } from '@/presentation/factories';
 import { MakeDepositUsecase } from '@/domain/usecases';
-import { MakeDepositDTO } from '@/presentation/dtos';
+import { MakeDepositDTO, MakeDepositResponseDTO } from '@/presentation/dtos';
+import { ApiResponse } from '@nestjs/swagger';
 
 @Controller()
 export class DepositController {
@@ -12,6 +13,10 @@ export class DepositController {
     this.usecase = this.makeDepositUsecaseFactory.build();
   }
 
+  @ApiResponse({
+    type: MakeDepositResponseDTO,
+    status: 201,
+  })
   @Post('/deposits')
   async makeDeposit(@Body() body: MakeDepositDTO) {
     const result = await this.usecase.execute(body);

@@ -1,5 +1,5 @@
 import { MakeDepositUsecasePayload } from '@/domain/usecases';
-import { IsNotEmpty, IsUUID, IsInt } from 'class-validator';
+import { IsNotEmpty, IsUUID, IsInt, IsPositive } from 'class-validator';
 
 export class MakeDepositDTO implements MakeDepositUsecasePayload {
   @IsUUID()
@@ -7,5 +7,6 @@ export class MakeDepositDTO implements MakeDepositUsecasePayload {
   accountId: string;
 
   @IsInt()
+  @IsPositive()
   amount: number;
 }

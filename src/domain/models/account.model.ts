@@ -4,8 +4,4 @@ export class AccountModel {
   balance: number;
   updatedAt?: Date;
   createdAt: Date;
-
-  constructor() {
-    //
-  }
 }

@@ -9,7 +9,13 @@ import {
   GetAccountBalanceUsecaseFactory,
   GetAccountStatementUsecaseFactory,
 } from '@/presentation/factories';
-import { CreateAccountDTO } from '@/presentation/dtos';
+import {
+  CreateAccountDTO,
+  CreateAccountResponseDTO,
+  GetAccountStatementResponseDTO,
+} from '@/presentation/dtos';
+import { ApiBody, ApiResponse } from '@nestjs/swagger';
+import { GetAccountBalanceResponseDTO } from '../dtos/get-account-balance-response.dto';
 
 @Controller()
 export class AccountController {
@@ -28,12 +34,23 @@ export class AccountController {
       this.getAccountBalanceUsecaseFactory.build();
   }
 
+  @ApiBody({
+    type: CreateAccountDTO,
+  })
+  @ApiResponse({
+    type: CreateAccountResponseDTO,
+    status: 201,
+  })
   @Post('/accounts')
   async createAccount(@Body() body: CreateAccountDTO) {
     const result = await this.createAccountUsecase.execute(body);
     return result;
   }
 
+  @ApiResponse({
+    type: GetAccountStatementResponseDTO,
+    status: 200,
+  })
   @Get('/accounts/:id/statement')
   async getStatement(@Param('id') id: string) {
     const result = await this.getAccountStatementUsecase.execute({
@@ -42,6 +59,10 @@ export class AccountController {
     return result;
   }
 
+  @ApiResponse({
+    type: GetAccountBalanceResponseDTO,
+    status: 200,
+  })
   @Get('/accounts/:id/balance')
   async getBalance(@Param('id') id: string) {
     const result = await this.getAccountBalanceUsecase.execute({

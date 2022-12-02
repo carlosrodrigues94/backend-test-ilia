@@ -1,5 +1,5 @@
 import { MakeWithdrawalUsecasePayload } from '@/domain/usecases';
-import { IsNotEmpty, IsUUID, IsInt } from 'class-validator';
+import { IsNotEmpty, IsUUID, IsInt, IsPositive } from 'class-validator';
 
 export class MakeWithdrawalDTO implements MakeWithdrawalUsecasePayload {
   @IsUUID()
@@ -7,5 +7,6 @@ export class MakeWithdrawalDTO implements MakeWithdrawalUsecasePayload {
   accountId: string;
 
   @IsInt()
+  @IsPositive()
   amount: number;
 }
