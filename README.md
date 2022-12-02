@@ -59,7 +59,7 @@ $ npm run knex migrate:latest
 - Create a account
 - Create another account
 
-* After this you can:
+# After this you can:
 
 - Make a deposit
 - Make a withdrawal
