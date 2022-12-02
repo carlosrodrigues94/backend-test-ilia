@@ -12,11 +12,25 @@
 
 ```bash
 $ npm install
+
 #or
+
 $ yarn install
 ```
 
 ## Running the app
+
+- Before use the app you have to run the migrations, if you are inside the docker you must open the app terminal inside the docker.
+  you can choose run only the database using docker and run the app without docker.
+
+ex:
+
+```bash
+$ docker-compose up database
+```
+
+database host inside docker: database
+database host outside docker: localhost
 
 ```bash
 # development
@@ -30,6 +44,13 @@ $ npm run start:prod
 
 # docker
 $ docker-compose up
+
+# migrations
+$ yarn knex migrate:latest
+
+# or
+
+$ npm run knex migrate:latest
 ```
 
 ## Getting started
