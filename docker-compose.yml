@@ -12,6 +12,8 @@ services:
       - .:/app
     command: npm run start:dev
 
+    environment:
+      - DB_HOST=database
     networks:
       backend_test_net:
         aliases:

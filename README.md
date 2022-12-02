@@ -1,3 +1,39 @@
+## Challenge:
+
+This document describes the test for backend development positions at the RipioTrade cryptocurrency exchange.
+
+The goal of this test is to develop a REST API in NodeJS that simulates a banking system. These are the endpoints that you should include:
+
+[✅] 1.Create account;
+
+[✅] 2.Make a deposit;
+
+[✅] 3.Get account balance;
+
+[✅] 4.Get account statement;
+
+[✅] 5.Transfer amount between two accounts;
+
+[✅] 6.Make a withdrawal;
+
+## There is no rule regarding frameworks or persistence, but there are some things that can be a plus:
+
+[✅] -Implementing the API using TypeScript;
+
+[✅] -Using the NestJS framework;
+
+[✅] -Persisting the data in a PostgreSQL database (in this case you should also create the migrations for the database);
+
+[❎] -Using the Prisma ORM;
+
+[✅] -Creating tests (unit, integration and end-to-end);
+
+[✅] -Documenting the API using Swagger / OpenAPI;
+
+[✅] Another big plus is also how your code is written, because this will be evaluated.
+
+[✅] The code for this API needs to be versioned in a public GitHub repository, and the URL should be shared with us. If possible, also include in the README the instructions to run the application and the tests (if there are any).
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
