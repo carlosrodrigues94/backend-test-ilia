@@ -1,3 +1,51 @@
+## About the project
+
+- host: http://localhost:3000
+- swagger: http://localhost:3000/api
+- database: postgres
+- tests: jest and supertest
+- container: docker
+
+<p>The application it is separated by layers respecting some architecture concepts</p>
+
+## Installation
+
+```bash
+$ npm install
+#or
+$ yarn install
+```
+
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
+
+# docker
+$ docker-compose up
+```
+
+## Getting started
+
+- Create a user
+- Create a account
+- Create another account
+
+* After this you can:
+
+- Make a deposit
+- Make a withdrawal
+- Transfer amount
+- Get account balance
+- Get account statement
+
 ## Challenge:
 
 This document describes the test for backend development positions at the RipioTrade cryptocurrency exchange.
@@ -24,7 +72,7 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 
 [✅] -Persisting the data in a PostgreSQL database (in this case you should also create the migrations for the database);
 
-[❎] -Using the Prisma ORM;
+[❌] -Using the Prisma ORM;
 
 [✅] -Creating tests (unit, integration and end-to-end);
 
@@ -61,58 +109,6 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## About the project
-
-- host: http://localhost:3000
-- swagger: http://localhost:3000/api
-- database: postgres
-- tests: jest and supertest
-- container: docker
-
-<p>The application it is separated by layers respecting some architecture concepts</p>
-
-## Installation
-
-```bash
-$ npm install
-#or
-$ yarn install
-```
-
-## Running the app
-
-* Before use the app you have to run the migrations, if you are inside the docker you must open the app terminal inside the docker.
-you can choose run only the database using docker and run the app without docker.
-
-ex: 
-```bash
-
-$ docker-compose up database
-
-```
-
-database host inside docker: database
-database host outside docker: localhost
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-
-# docker
-$ docker-compose up
-
-# migrations
-$ yarn knex migrate:latest
-# or
-$ npm run knex migrate:latest
-```
 
 ## Test
 
