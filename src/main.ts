@@ -20,7 +20,6 @@ async function bootstrap() {
     .setTitle('Backend Test Ilia')
     .setDescription('Bank Account')
     .setVersion('1.0')
-    .addTag('bank')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
