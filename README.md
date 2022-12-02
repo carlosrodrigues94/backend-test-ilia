@@ -29,8 +29,8 @@ ex:
 $ docker-compose up database
 ```
 
-database host inside docker: database
-database host outside docker: localhost
+- database host inside docker: database
+- database host outside docker: localhost
 
 ```bash
 # development
