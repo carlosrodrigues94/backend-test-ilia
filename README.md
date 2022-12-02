@@ -118,19 +118,19 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 
 ## Screenshots
 
-<p align="center">
+<p align="center" style="margin:14px 0;">
   <img src="./github/assets/unit-tests.png" width="600" alt="Nest Logo" />
 </p>
 
-<p align="center">
+<p align="center" style="margin:14px 0;">
   <img src="./github/assets/insomnia-screenshot.png" width="600" alt="Nest Logo" />
 </p>
 
-<p align="center">
+<p align="center" style="margin:14px 0;">
   <img src="./github/assets/swagger-screenshot.png" width="600" alt="Nest Logo" />
 </p>
 
-<p align="center">
+<p align="center" style="margin:14px 0;">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
