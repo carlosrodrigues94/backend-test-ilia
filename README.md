@@ -62,10 +62,22 @@ The goal of this test is to develop a REST API in NodeJS that simulates a bankin
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## About the project
+
+host: http://localhost:3000
+swagger: http://localhost:3000/api
+database: postgres
+tests: jest and supertest
+container: docker
+
+<p>The application it is separated by layers respecting some architecture concepts</p>
+
 ## Installation
 
 ```bash
 $ npm install
+#or
+$ yarn install
 ```
 
 ## Running the app
@@ -79,6 +91,9 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
+
+# docker
+$ docker-compose up
 ```
 
 ## Test
